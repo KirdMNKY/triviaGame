@@ -19,6 +19,7 @@ $(document).ready(function() {
     var showRightWrong = $("#rightWrong");
     var showGIF = $("#gif");
     var numQuestions = 0;
+    var scoreBoard = $("#scoreBoard");
 
     var triviaQuestions = [
         {
@@ -129,15 +130,13 @@ function startGame(){
         showA4.html(triviaQuestions[i].a4);
     }else{
         gameOver();
-        setTimeout(function(){
-            startGame();
-        }, 9000);
-        
+                
     }   
     
 }
 
 function resetGame(){
+    scoreBoard.attr("style", "display: none;");
     showScore.attr("style", "display: none;");
     startBtn.attr("style", "display: none;");
     showQuestion.attr("style", "display: block;");
@@ -149,7 +148,7 @@ function resetGame(){
     showGIF.attr("style", "display: none;");
     showRightWrong.attr("style", "display: none;");
     
-    console.log("reset");
+    // console.log("reset");
     stop();
     idClicked = "";
     thirty = 30;
@@ -204,20 +203,20 @@ function checkWin(){
 
 function winner(){
     score++;
-    alert("you win");
+    // alert("you win");
     awardScreen();
     
     
 }
 
 function loser(){
-    alert("you lose");
+    // alert("you lose");
     awardScreen();
     
 }
 
 function outtaTime(){
-    alert("you are out of time");
+    // alert("you are out of time");
     timeUp();
 }
 
@@ -249,6 +248,8 @@ function timeUp(){
 }
 
 function gameOver(){
+    // alert(score);
+    scoreBoard.attr("style", "display: inline-block;");
     //Display Game Over Screen
     showScore.attr("style", "display: inline-block;");
     showScore.text(score);
@@ -272,14 +273,18 @@ function gameOver(){
     }else{
         showGIF.html("<img src='assets/images/finishlose.gif'> ");
     }
-    setTimeout(function(){
-        startGame();
-    }, 8000);
+    // setTimeout(function(){
+    //     startGame();
+    // }, 8000);
     stop();
+    startBtn.attr("style", "display: block;");
+    
 }
 
 function awardScreen(){
+    // alert(score);
     stop();
+    scoreBoard.attr("style", "display: inline-block;");
     showScore.attr("style", "display: inline-block;");
     showScore.text(score);
     showGIF.attr("style", "display: inline-block;");
@@ -318,7 +323,7 @@ function awardScreen(){
         var sound = new Audio();
         sound.src = "assets/sounds/win/" + winSounds[randSound];
         sound.play();
-        score++;
+        
     }
     setTimeout(function(){
         startGame();
@@ -342,34 +347,6 @@ function questionTimer() {
   intervalId = setInterval(decrement, 1000);
 } // End of questionTimer
 
-// function scoreScreenTimer() {
-//     //gameover
-//     if(continueGame === true){
-//         thirty = 15
-//         if(thirty <= 0){
-//         clearInterval(intervalId);
-//         thirty = 30;
-//         return;
-//         }
-    
-//         clearInterval(intervalId);
-//         intervalId = setInterval(decrement, 1000);
-        
-//     }
-//     //award screen
-//     else {
-//         thirty = 15
-//         if(thirty <= 0){
-//         clearInterval(intervalId);
-//         thirty = 30;
-//         return;
-//         }
-    
-//         clearInterval(intervalId);
-//         intervalId = setInterval(decrement, 1000);
-        
-//     }
-//   } // End of scoreScreenTimer
 
 function decrement() {
 
