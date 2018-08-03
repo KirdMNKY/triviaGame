@@ -119,15 +119,21 @@ startBtn.on("click", function(){
 
 
 function startGame(){
-    
-    resetGame();
-    showScore.text(score);
-    showQuestion.html(triviaQuestions[i].q);
-    showA1.html(triviaQuestions[i].a1);
-    showA2.html(triviaQuestions[i].a2);
-    showA3.html(triviaQuestions[i].a3);
-    showA4.html(triviaQuestions[i].a4);
-    
+    if(i < correctAnswers.length){
+        resetGame();
+        showScore.text(score);
+        showQuestion.html(triviaQuestions[i].q);
+        showA1.html(triviaQuestions[i].a1);
+        showA2.html(triviaQuestions[i].a2);
+        showA3.html(triviaQuestions[i].a3);
+        showA4.html(triviaQuestions[i].a4);
+    }else{
+        gameOver();
+        setTimeout(function(){
+            startGame();
+        }, 9000);
+        
+    }   
     
 }
 
@@ -172,10 +178,10 @@ showA4.on("click", function(){
 
 
 function checkWin(){
-    if(numQuestions <= answers.length){
-        if(i >= answers.length){
-            gameOver();
-        }
+    // if(numQuestions <= answers.length){
+        // if(i >= answers.length){
+        //     gameOver();
+        // }
         if(idClicked === correctAnswers[i]){
             i++;
             numQuestions++;
@@ -191,9 +197,9 @@ function checkWin(){
 
         }
 
-    }else {
-        gameOver();
-    }
+    // }else {
+    //     gameOver();
+    // }
 }
 
 function winner(){
@@ -262,9 +268,9 @@ function gameOver(){
     showTimer.attr("style", "display: none;");
     showRightWrong.text("It's finished...."); 
     if(score >= 7){
-        showGIF.html("<img src=\"assets/images/finishwin.gif\" ");
+        showGIF.html("<img src='assets/images/finishwin.gif'> ");
     }else{
-        showGIF.html("<img src=\"assets/images/finishlose.gif\" ");
+        showGIF.html("<img src='assets/images/finishlose.gif'> ");
     }
     setTimeout(function(){
         startGame();
@@ -274,8 +280,8 @@ function gameOver(){
 
 function awardScreen(){
     stop();
-    // showScore.attr("style", "display: inline-block;");
-    // showScore.text(score);
+    showScore.attr("style", "display: inline-block;");
+    showScore.text(score);
     showGIF.attr("style", "display: inline-block;");
     //setTimeout(scoreScreenTimer,1000);
     //clear question and answers
