@@ -1,0 +1,101 @@
+@font-face {
+    font-family: LotR;
+    src: url("../fonts/hobbitonbrushhand.ttf");
+}
+
+body {
+    font-weight: bold;
+    background-image: url("../images/lotrbg.jpg");
+    
+}
+
+span {
+    font-size: 42px;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: LotR;
+    display: none;
+    margin: 10px auto;
+    background: lightgreen;
+    border: solid gold 10px;
+}
+
+
+#title {
+    padding-top: 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-family: LotR;
+    margin: 0 auto;
+    text-align: center;
+    background: lightgreen;
+    border: solid gold 10px;
+
+}
+
+#timer {
+    font-size: 42px;
+    border-radius: 25px;
+    padding-top: 20px;
+    font-family: LotR;
+    display: none;
+    width: 80px;
+    background: lightgreen;
+    border: solid gold 10px;
+}
+
+
+#start {
+    padding-top: 20px;
+    border-radius: 25px;
+    font-family: LotR;
+    display: show;
+    width: 150px;
+    margin: 0 auto;
+    padding-left: 25px;
+    background: lightgreen;
+    border: solid gold 10px;
+}
+
+#score{
+    display: none;
+    border-radius: 25px;
+    font-size: 42px;
+    padding-top: 20px;
+    font-family: LotR;
+    display: show;
+    width: 150px;
+    /* margin: 0 auto; */
+    padding-left: 25px;
+    background: lightgreen;
+    border: solid gold 10px;
+}
+
+#question{
+    display: none;
+    margin-top: 20px;
+    border-radius: 25px;
+    font-size: 38px;
+    padding-top: 20px;
+    font-family: LotR;
+    display: show;
+    width: 150px;
+    /* margin: 0 auto; */
+    padding-left: 25px;
+    background: lightgreen;
+    border: solid gold 10px;
+}
+
+#a1, #a2, #a3, #a4{
+    display: none;
+    border-radius: 25px;
+    font-size: 32px;
+    padding-top: 20px;
+    font-family: LotR;
+    display: show;
+    width: 150px;
+    margin: 10px auto;
+    padding-left: 25px;
+    background: lightgreen;
+    border: solid gold 10px;
+}
